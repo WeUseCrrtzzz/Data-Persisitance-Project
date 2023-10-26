@@ -9,7 +9,7 @@ public class PlayerNameScript : MonoBehaviour
     private MainManager managerScript;
     public Name nameScript;   
     public Text self;
-    public int bestScore = 1;
+    public int bestScore;
 
 
     // Start is called before the first frame update
@@ -17,11 +17,13 @@ public class PlayerNameScript : MonoBehaviour
     {
         managerScript = GameObject.Find("MainManager").GetComponent<MainManager>();
         nameScript = GameObject.Find("Name").GetComponent<Name>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        bestScore = managerScript.highScore;
         self.text = "Best Score : " + bestScore + " Name : " + nameScript.playerName; 
     }
 }
